@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" role="img" aria-labelledby="title">
+  <title id="title">Rudy GPTGuard · Disk image evidence</title>
+  <rect width="1200" height="300" rx="18" fill="#0c121a"/>
+  <path d="M2 0v300" stroke="#55e0b6" stroke-width="5"/>
+  <g fill="#55e0b6" font-family="monospace" font-size="15" letter-spacing="3">
+    <text x="55" y="54">RUDY SYSTEMS / DISK IMAGE INSPECTION</text>
+    <text x="55" y="260">C# / .NET 10 / OFFLINE / PREVIEW</text>
+  </g>
+  <text x="55" y="125" fill="#edf6ff" font-family="system-ui,sans-serif" font-size="58" font-weight="700">Rudy GPTGuard</text>
+  <text x="57" y="178" fill="#a7c5dc" font-family="system-ui,sans-serif" font-size="25">Verify both tables. Compare disk layouts.</text>
+  <path d="M55 222h1090" stroke="#26394b"/>
+  <g fill="#132332" stroke="#2f4c60" stroke-width="2">
+    <rect x="757" y="105" width="118" height="46" rx="7"/>
+    <rect x="892" y="105" width="118" height="46" rx="7"/>
+    <rect x="1027" y="105" width="118" height="46" rx="7"/>
+    <path d="M816 98V80h270v18M875 128h17m118 0h17" fill="none"/>
+  </g>
+  <g fill="#55e0b6" font-family="monospace" font-size="14" text-anchor="middle">
+    <text x="816" y="133">PRIMARY</text>
+    <text x="951" y="133">USABLE LBAs</text>
+    <text x="1086" y="133">BACKUP</text>
+    <text x="951" y="180">CHECKSUM / GEOMETRY / AGREEMENT</text>
+  </g>
+</svg>
