@@ -90,7 +90,11 @@ internal sealed class ImageReader(Stream image, int sectorSize)
         if (header.DiskId == Guid.Empty)
             issues.Add(new("header.empty-disk-id"));
 
-        bool usable = header.FirstUsableLba >= 2 && header.LastUsableLba < last &&
+        // GPT reserves at least 16 KiB for each partition array, even if the
+        // actual entry count occupies fewer sectors.
+        ulong minimumSpan = 16_384UL / (uint)sectorSize;
+        bool usable = last > minimumSpan && header.FirstUsableLba >= 2 + minimumSpan &&
+                      header.LastUsableLba < last - minimumSpan &&
                       header.FirstUsableLba <= header.LastUsableLba;
         if (!usable)
             issues.Add(new("header.usable-range"));

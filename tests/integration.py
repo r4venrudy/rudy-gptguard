@@ -129,6 +129,15 @@ with TemporaryDirectory() as tmp:
         damaged[(SECTORS - 1) * sector] = 0
         check(inspect(damaged)["gptStatus"] == "unreadable", "no readable header")
 
+        # A short entry array can fit while leaving inadequate reserved space.
+        damaged = bytearray(baseline)
+        copy_write(damaged, sector, 1, 80, "<I", 1)
+        copy_write(damaged, sector, 1, 88, "<I", crc32(damaged[2 * sector:2 * sector + ENTRY_SIZE]))
+        report = inspect(damaged)
+        check(report["gptStatus"] == "divergent" and report["primary"]["valid"], report)
+        copy_write(damaged, sector, 1, 40, "<Q", 3)
+        issue(inspect(damaged), "primary", "header.usable-range")
+
         damaged = bytearray(baseline)
         entry = 2 * sector
         damaged[entry + 56:entry + 58] = b"\x00\xd8"
